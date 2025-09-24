@@ -54,10 +54,10 @@ def display_paginated_articles(df):
         with col2:
             st.markdown(f"[🔗閱覽連結](https://freedium.cfd/{row['URL']})", unsafe_allow_html=True)
         
-        # 合併 subtitle, author 和 date 到一行以縮短版面
-        subtitle = row['Subtitle'] if pd.notna(row['Subtitle']) else ''
+        
+        st.markdown(f"{row['Subtitle'] if pd.notna(row['Subtitle']) else ''}")
         date_str = row['Date'].strftime('%Y-%m-%d') if pd.notna(row['Date']) else 'N/A'
-        st.markdown(f"{subtitle} — {row['Author']}, {date_str}", unsafe_allow_html=True)
+        st.markdown(f"{row['Author']}, {date_str}")
         st.markdown("---")
     
     # 分頁控制按鈕
@@ -163,4 +163,5 @@ if df is not None:
         else:
             st.info("無符合搜尋結果。")
     else:
+
         display_paginated_articles(filtered_df)
