@@ -146,33 +146,36 @@ st.title("Medium Digest-Web")
 file_path = 'Medium digest (classified).xlsx'
 df = load_data(file_path)
 
+
 if df is not None:
     # ===== 類別清單 =====
     ai_categories = [
         "Agentic AI & AI Agents",
         "Retrieval-Augmented Generation (RAG)",
-        "Large Language Models (LLM)",
         "Multimodal AI (Vision/Audio/Video + Language)",
+        "Prompt Engineering & In-Context Learning",
+        "Fine-tuning & Embeddings",
+        "Large Language Models (LLM)",
+        "Natural Language Processing (non-LLM)",
         "Computer Vision (CV)",
         "Speech & Audio AI",
-        "Natural Language Processing (non-LLM)",
-        "Fine-tuning & Embeddings",
-        "Prompt Engineering & In-Context Learning",
-        "AI Evaluation & Metrics",
         "Deep Learning (non-LLM)",
         "Machine Learning (Classical)",
+        "AI Algorithm",
+        "AI Evaluation & Metrics",
         "AI Infrastructure, MLOps & Frameworks",
         "AI Applications (Business/Dev/Productivity)",
         "AI Policy, Governance & Safety"
     ]
 
     non_ai_display_categories = [
-        "Software Engineering & Programming",
         "Data Science & Statistics",
+        "Software Engineering & Programming",
         "Technology/Science",
         "Finance/Economics/Business",
         "Society/Culture/Other"
     ]
+
     # ===== 狀態（已報告 / 未報告） =====
     st.sidebar.subheader("狀態")
     total_read = int(df["Read"].sum())
