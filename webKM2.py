@@ -105,8 +105,11 @@ def display_paginated_articles(df):
         title_html = f"<font size=5>♦ <b>{row['Title']}</b></font>"
         subtitle_html = f"{row['Subtitle']}" if pd.notna(row['Subtitle']) else ""
         date_str = row['Date'].strftime('%Y-%m-%d') if pd.notna(row['Date']) else 'N/A'
-        link_html = f"{row['Author']}, {date_str}  <a href='https://freedium.cfd/{row['URL']}' target='_blank'>🔗閱覽連結</a>"
-
+        link_html = (
+            f"{row['Author']},  {date_str}, "
+            f"<a href='{row['URL']}' target='_blank' style='margin-right:15px'>🔗全文連結</a>"
+            f"<a href='https://freedium.cfd/{row['URL']}' target='_blank'>🔗破解連結</a>"
+            )
         st.markdown(f"<div class='{wrapper_class}'>{title_html}</div>", unsafe_allow_html=True)
         if subtitle_html:
             st.markdown(f"<div class='{wrapper_class}'>{subtitle_html}</div>", unsafe_allow_html=True)
